@@ -48,17 +48,17 @@ const getProducts = async (req: Request, res: Response) => {
     // creating a query based on search terms
     if (name) {
       query.name = new RegExp(name, 'i');
-      searchTerm += name + ' ';
+      searchTerm += ' ' + name + ' ';
     }
 
     if (description) {
       query.description = new RegExp(description, 'i');
-      searchTerm += description + ' ';
+      searchTerm += ' ' + description + ' ';
     }
 
     if (category) {
       query.category = new RegExp(category, 'i');
-      searchTerm += category + ' ';
+      searchTerm += '' + category + ' ';
     }
 
     // console.log(query);
@@ -95,6 +95,7 @@ const getProducts = async (req: Request, res: Response) => {
 const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productID } = req.params;
+    console.log(productID);
     //calling service function and sending productID
     const result = await ProductServices.getSingleProductFromDB(productID);
 

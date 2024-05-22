@@ -23,7 +23,9 @@ const getProductsFromDB = async (query?: ProductQuery) => {
 const getSingleProductFromDB = async (id: string) => {
   //getting specific product info from DB
   const result = await Product.findById(id);
-
+  if (result === null) {
+    throw new Error('No product available');
+  }
   return result;
 };
 
@@ -32,6 +34,9 @@ const updateProductInDB = async (id: string, updateData: TProduct) => {
   //finding and updating product in DB
 
   const result = await Product.findByIdAndUpdate(id, updateData, { new: true });
+  if (result === null) {
+    throw new Error('No product found to update');
+  }
   return result;
 };
 
