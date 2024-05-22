@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "004c9a59-a8d3-454a-b19f-11e622970042",
+		"name": "mongoose-try practice 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20919468"
+	},
+	"item": [
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product\": {\n        \"name\": \"Coffee Maker\",\n        \"description\": \"Programmable coffee maker with 12-cup capacity.\",\n        \"price\": 49.99,\n        \"category\": \"Kitchen\",\n        \"tags\": [\n            \"kitchen\",\n            \"coffee\",\n            \"appliance\",\n            \"programmable\"\n        ],\n        \"variants\": [\n            {\n                \"type\": \"color\",\n                \"value\": \"Black\"\n            },\n            {\n                \"type\": \"color\",\n                \"value\": \"Stainless Steel\"\n            }\n        ],\n        \"inventory\": {\n            \"quantity\": 30,\n            \"inStock\": true\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/products/create-product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"products",
+						"create-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/products?description=model",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "description",
+							"value": "model"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/products/664e124ff73260f045ed7702",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"products",
+						"664e124ff73260f045ed7702"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product\": {\n        \"name\": \"Gaming Keyboard\",\n        \"description\": \"Mechanical gaming keyboard with RGB backlight.\",\n        \"price\": 89.99,\n        \"category\": \"Electronics\",\n        \"tags\": [\n            \"gaming\",\n            \"keyboard\",\n            \"mechanical\",\n            \"RGB\",\n            \"60%\"\n        ],\n        \"variants\": [\n            {\n                \"type\": \"switch\",\n                \"value\": \"Blue\"\n            },\n            {\n                \"type\": \"switch\",\n                \"value\": \"Red\"\n            }\n        ],\n        \"inventory\": {\n            \"quantity\": 40,\n            \"inStock\": true\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/products/664e124ff73260f045ed770",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"products",
+						"664e124ff73260f045ed770"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/products/664e1223f73260f045ed76f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"products",
+						"664e1223f73260f045ed76f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order\": {\n        \"email\": \"test@gmail.com\",\n        \"productId\": \"664e11fcf73260f045ed76eb\",\n        \"price\": 29.99,\n        \"quantity\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7000/api/orders/create-order/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"orders",
+						"create-order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7000/api/orders?email=test@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
