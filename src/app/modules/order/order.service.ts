@@ -8,7 +8,7 @@ const createOrderIntoDB = async (order: TOrder) => {
 
 const getAllOrdersFromDB = async (query?: Query) => {
   //find order
-  console.log(query);
+  // console.log(query);
   const result = await Order.find(query || {});
   //in case result is empty, give error, no order
   if (!result.length) {
