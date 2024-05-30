@@ -95,7 +95,7 @@ const getProducts = async (req: Request, res: Response) => {
 const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productID } = req.params;
-    console.log(productID);
+    // console.log(productID);
     //calling service function and sending productID
     const result = await ProductServices.getSingleProductFromDB(productID);
 
