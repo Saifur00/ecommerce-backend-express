@@ -7,10 +7,10 @@ import { ProductQuery } from './product.interface';
 
 const createProduct = async (req: Request, res: Response) => {
   try {
-    const { product: productData } = req.body;
+    // const { product: productData } = req.body;
 
     //data validation using zod
-    const zodparsedData = TProductValidationSchema.parse(productData);
+    const zodparsedData = TProductValidationSchema.parse(req.body);
 
     //Calling service function to send the request data
     const result = await ProductServices.createProductIntoDB(zodparsedData);
@@ -119,14 +119,11 @@ const getSingleProduct = async (req: Request, res: Response) => {
 //update a product controller
 const updateProduct = async (req: Request, res: Response) => {
   try {
-    const { product: updateData } = req.body;
+    // const { product: updateData } = req.body;
     const { productID } = req.params;
 
     //calling service function and sending updateData and productID
-    const result = await ProductServices.updateProductInDB(
-      productID,
-      updateData,
-    );
+    const result = await ProductServices.updateProductInDB(productID, req.body);
 
     // console.log(result);
 

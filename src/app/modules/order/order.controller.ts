@@ -5,10 +5,10 @@ import { Query } from './order.interface';
 
 const createOrder = async (req: Request, res: Response) => {
   try {
-    const { order: orderData } = req.body;
+    // const { order: orderData } = req.body;
 
     //data validation using zod
-    const zodparsedOrderData = OrderValidationSchema.parse(orderData);
+    const zodparsedOrderData = OrderValidationSchema.parse(req.body);
 
     //calling service function to send the request data
     const result = await OrderServices.createOrderIntoDB(zodparsedOrderData);
